@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel="icon" type="image/png" href="images/logo.png">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>
+
+        <title>Vélo Nantes</title>
+    </head>
+
+    <body>
+        
+        <!-- HEADER NAVBAR -->
+        <div class="bg-light sticky-top">
+            <div class="container">
+                <div class="row">
+                    <nav class="col navbar navbar-expand-md navbar-light my-2">
+                        <a class="navbar-brand mx-sm-3" href="index.html">
+                            <img src="images/logo.png" width="25" height="25" alt="Site logo">
+                            Vélo Nantes         
+                        </a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div id="navbarContent" class="collapse navbar-collapse">
+                            <ul class="navbar-nav">
+                                <li class="nav-item active mx-sm-3">
+                                    <a class="nav-link" href="#slider">Comment ça marche ?</a>
+                                </li>
+                                <li class="nav-item mx-sm-3">
+                                    <a class="nav-link" href="#reservation">Réservation</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+   
+        <!-- SLIDER -->
+        <div class="container">
+            <div class="row">
+                <div id="slider" class="col text-center mt-3">
+                    <img id="diapoActive" src="images/img1.jpg" alt="diapo_Photo1" max-width="100%" height="auto" class="my-3 img-thumbnail">
+            
+                    <div id="controls">
+                        <button alt="preview" id="prev" class="btn btn-outline-dark my-2" width="50" height="50"><</button>
+                        <button alt="pause" id="pause" class="btn btn-outline-dark my-2">ll</button>
+                        <button alt="next" id="next" class="btn btn-outline-dark my-2">></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- RESERVATION -->
+        <div class="container-fluid my-5">
+            <div id="reservation" class="row justify-content-center">
+
+                <!-- CARTE -->
+                <div id="carte" style="width:900px;height:800px;" class="col-10 col-lg-6 border"></div>
+            
+                <!-- ENCART -->
+                <div id="encart" class="col-8 col-lg-4 border my-4 my-lg-0 mx-3">
+                    <div id="texte_information" class="my-4 text-info text-center">
+                        <h6>Cliquez sur une station de vélos pour obtenir plus d'informations.</h6>
+                    </div>
+        
+                    <div id="informations" class="">
+                        <p id="etatStation"></p>
+                        <p id="nomStation"></p>
+                        <p id="adresseStation"></p>
+                        <p id="capaciteVelos"></p>
+                        <p id="velosDisponibles"></p>
+                    </div>
+                    
+                    <!-- FORMULAIRE -->
+                    <form action="" method="" id="form">
+                        <hr/>
+                        <h6><u>Réservation :</u></h6>
+                        <div class="row mt-3">
+                            <div class="form-group col-6">
+                                <label for="nom">Nom :</label>
+                                <input type="text" id="nom" name="nom" class="form-control">
+                            </div>
+            
+                            <div class="form-group col-6">
+                                <label for="prenom">Prénom :</label>
+                                <input type="text" id="prenom" name="prenom" class="form-control">
+                            </div>
+                         
+                            <div class="form-group col-12 text-center">
+                                <p>Signature:</p>
+                                <canvas id="canvas" width="150" height="100" style="border: 1px solid #ced4da; width: 150px; height: 100px;" class="rounded"></canvas>
+                                <canvas id="blank" width="150" height="100" style="display: none;"></canvas>
+                          
+                                <div>
+                                    <a href="#form" id="effacer" class="text-info">Effacer la signature</a>
+                                </div>
+                            </div>    
+                         
+
+                            <div id="button" class="form-group col-12 text-center">
+                                <button type="submit" class="btn btn-outline-dark">Réserver un vélo</button>
+                            </div>
+
+                            
+                        </div>
+                        <div class="row justify-content-center mt-4">
+                            <div class="col-12">
+                                <div id="confirmation" class="text-center text-info"></div>
+                                <div id="timer" class="text-center text-info h6"></div>
+                            </div>
+                        </div>
+                </form>
+                    
+                    
+                </div>
+            </div>
+        </div>
+                
+
+                
+        <!-- FOOTER -->
+
+        <footer class="container">
+            <div class="row"> 
+                <div class="col-12 mt-4">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item"><a href="#" class="text-info">À propos</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-info">Nous contacter</a></li>
+                        <li class="list-inline-item">&middot;</li>
+                        <li class="list-inline-item"><a href="#" class="text-info">Conditions d'utilisations</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JavaScript -->
+        
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
+        <script src="reservation.js"></script>
+        <script src="canvas.js"></script>
+        <script src="carte.js"></script>
+        <script src="slider.js"></script>
+
+        <!-- BOOTSTRAP links : jQuery first, then Popper.js, then Bootstrap JS -->
+
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    </body>
+</html>
